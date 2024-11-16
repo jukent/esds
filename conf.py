@@ -17,9 +17,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'NCAR-ESDS'
-copyright = '2021, NCAR Earth System Data Science Team'
-author = 'NCAR Earth System Data Science Team'
+project = 'ESDS'
+copyright = '2024, Earth System Data Science (ESDS) Team'
+author = 'Earth System Data Science (ESDS) Team'
 
 # The full version, including alpha/beta/rc tags
 release = '0.1'
@@ -33,7 +33,6 @@ release = '0.1'
 extensions = [
     'myst_nb',
     'ablog',
-    'sphinx_comments',
     'sphinxext.rediraffe',
     'sphinx_design',
     'sphinx_copybutton',
@@ -51,6 +50,8 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
+# Set language which will propagate to the top-level HTML tag
+language = 'en'
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -62,9 +63,8 @@ html_theme = 'pydata_sphinx_theme'
 # Add some more theme Options
 html_theme_options = {
     'github_url': 'https://github.com/ncar/esds',
-    'search_bar_text': 'Search this site... ',
     'google_analytics_id': 'UA-196809533-1',
-    'navbar_end': ['search-field.html', 'navbar-icon-links'],
+    'navbar_end': ['navbar-icon-links'],
 }
 
 rediraffe_redirects = 'redirects.txt'
@@ -80,20 +80,18 @@ html_sidebars = {
     'about': ['hello.html'],
     'faq': ['hello.html'],
     'communication': ['hello.html'],
-    'blog': ['search-field.html', 'sidebar-nav-bs.html', 'tagcloud.html', 'archives.html'],
+    'blog': ['sidebar-nav-bs.html', 'tagcloud.html', 'archives.html'],
     'posts/**': [
-        'search-field.html',
         'sidebar-nav-bs.html',
         'postcard.html',
         'recentposts.html',
         'archives.html',
-    ]
-    #    "**": ["search-field.html", "sidebar-nav-bs.html"]
+    ],
 }
 
 
 blog_baseurl = 'ncar.github.io/esds/'
-blog_title = 'NCAR ESDS'
+blog_title = 'ESDS'
 blog_path = 'blog'
 fontawesome_included = True
 blog_post_pattern = 'posts/*/*'
@@ -111,11 +109,6 @@ myst_url_schemes = ['http', 'https', 'mailto']
 
 # Temporarily stored as off until we fix it
 jupyter_execute_notebooks = 'off'
-
-
-comments_config = {
-    'utterances': {'repo': 'NCAR/esds', 'optional': 'config', 'label': '💬 comment'},
-}
 
 
 def setup(app):
